@@ -1,0 +1,30 @@
+// 背景图片
+@mixin bg-image($url) {
+  background-image: url($url + "@2x.png"); //默认情况下就是这个2像素的
+
+  @media (-webkit-min-device-pixel-ratio: 3),
+  (min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png"); //当xxx情况下 背景图用这个3像素的
+  }
+}
+
+// 禁止折行
+@mixin no-wrap() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 扩展小图标按钮的点击区域
+@mixin extend-click() {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
